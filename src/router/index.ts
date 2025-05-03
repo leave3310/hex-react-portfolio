@@ -4,11 +4,15 @@ import {
 } from "react-router";
 
 
-const router = createBrowserRouter([
+export const routes = [
   {
     path: "/",
-    Component: lazy(() => import("@/App.tsx")),
+    Component: lazy(() => import("@/pages/index/index.tsx")),
   },
-]);
+  {
+    path: "/blog",
+    Component: lazy(() => import("@/pages/blog/index.tsx")),
+  },
+]
 
-export default router;
+export const router = createBrowserRouter(routes);

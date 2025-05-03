@@ -11,6 +11,7 @@
     flex-direction: column; 
     font-family: "Noto Sans TC", sans-serif;
     font-optical-sizing: auto;
+    min-width: 375px;
   }
 
   #root {
