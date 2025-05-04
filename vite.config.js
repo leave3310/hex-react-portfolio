@@ -18,4 +18,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'), // 將 @ 指向 src 目錄
     },
   },
+  base: '/hex-react-portfolio/'
 })

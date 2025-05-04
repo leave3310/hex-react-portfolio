@@ -1,8 +1,7 @@
 import {lazy} from 'react'
 import {
-  createBrowserRouter,
-} from "react-router";
-
+  createHashRouter,
+} from "react-router-dom";
 
 export const routes = [
   {
@@ -15,4 +14,4 @@ export const routes = [
   },
 ]
 
-export const router = createBrowserRouter(routes);
+export const router = createHashRouter(routes);
