@@ -1,8 +1,12 @@
 import { useState } from 'react'
+import { Link } from "react-router";
 
 import Default from '@/layouts/Default.tsx'
 import Card from './components/Card.tsx'
 
+import heroSection from "@/assets/images/hero_section.png"
+import heroSection2 from "@/assets/images/hero_section2.png"
+import aboutSection from "@/assets/images/about_section.png"
 import photo4 from "@/assets/images/photo4.png"
 import photo1 from "@/assets/images/photo1.png"
 import photo2 from "@/assets/images/photo2.png"
@@ -14,6 +18,13 @@ import photo7 from "@/assets/images/photo7.png"
 import photo8 from "@/assets/images/photo8.png"
 import photo11 from "@/assets/images/photo11.png"
 import photo10 from "@/assets/images/photo10.png"
+import SearchIcon from "@/assets/images/svg/search.svg?react"
+import YTIcon from '@/assets/images/yt.png'
+import PodcastIcon from '@/assets/images/podcast.png'
+import FBIcon from '@/assets/images/fb.png'
+import LinkedinIcon from '@/assets/images/linkedin.png'
+import IGIcon from '@/assets/images/ig.png'
+
 const cardList = [
     {
         imgSrc: photo4,
@@ -99,39 +110,92 @@ export default function Blog() {
     const [currentPage, setCurrentPage] = useState(0)
     return (
         <Default>
-            <div className='max-w-[1296px] mx-auto grid xl:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-[32px] md:gap-y-20 mb-10 px-[12px]'>
-                {
-                    cardList.map((card, index) => (
-                        <Card key={index} {...card} />
-                    ))
-                }
+            <div className='xl:flex'>
+                <div className='xl:w-1/2'>
+                    <img src={heroSection} alt="hero-section" className='w-full' />
+                </div>
+                <div className='xl:w-1/2 flex justify-center flex-col bg-cover bg-center xl:pl-[80px] px-[24px] py-[24px]' style={{ backgroundImage: `url(${heroSection2})` }}>
+                    <h1 className='xl:text-[120px] text-[52px] font-black uppercase text-primary mb-3 '>blog</h1>
+                    <p className='text-[28px] font-bold text-primary'>前端工程師 & 職涯諮詢師</p>
+                </div>
             </div>
-
-            <nav className='mx-auto md:mb-20 mb-[64px] w-fit justify-center flex bg-white rounded-[40px] text-[16px] font-medium py-2'>
-                <button type='button' className='py-2 px-4 text-text cursor-pointer hover:text-primary transition-colors'>
-                    &lt;
-                </button>
-                <ul className='flex'>
+            <div className='xl:flex items-center '>
+                <div className='xl:w-1/2'>
+                    <img src={aboutSection} alt="about-section" className='w-full' />
+                </div>
+                <div className='xl:w-1/2 xl:pl-[24px] max-w-[636px] px-3 pt-[48px]'>
+                    <div className='text-black text-[16px] font-medium mb-1'>
+                        2024/10/21
+                    </div>
+                    <div className='flex mb-2'>
+                        <h2 className='text-primary text-[24px] font-medium mr-2'>
+                            前端開發 x 職涯成長
+                        </h2>
+                        <div className='rounded-[40px] bg-primary text-white text-[16px] font-bold py-[6px] px-3'>
+                            最新文章
+                        </div>
+                    </div>
+                    <h3 className='text-black text-[28px] font-bold mb-2'>
+                        自學前端不用怕：從零開始的三大關鍵
+                    </h3>
+                    <p className='line-clamp-2 font-medium text-[16px] mb-4'>
+                        嗨，我是 Alyse，一名前端工程師兼職涯諮詢師。一直以來，我都很喜歡在部落格分享學習與工作心得，也常有讀者問：「我想轉職/自學前端，該從哪裡開始？」 其實自學的過程既自由又具挑戰性。我整理了三大關鍵，幫助你在短期內建立紮實基礎，並快速累積實戰經驗。希望能替你的前端之路帶來一些啟發與動力！
+                    </p>
+                    <Link to="/blog/detail" className="rounded-[40px] text-text py-2 px-4 border border-black inline-block hover:bg-black hover:text-white transition-colors">
+                        閱讀內文
+                    </Link>
+                </div>
+            </div>
+            <div className='pt-[112px] xl:pt-[80px] max-w-[1296px] mx-auto px-[12px]'>
+                <div className='mb-10 relative mx-auto min-w-[351px] max-w-[416px] xl:ml-0'>
+                    <SearchIcon className='w-6 h-6 absolute top-1/2 left-4 -translate-y-1/2 text-text text-text' />
+                    <input type="text" className='border border-solid p-4 rounded-[40px] w-full pl-[50px] font-medium text-[16px] ' placeholder='搜尋你感興趣的文章' />
+                </div>
+                <div className='grid xl:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-[32px] md:gap-y-20 mb-10'>
                     {
-                        Array.from({ length: 5 }).map((_, index) => (
-                            <li key={index}>
-                                <button
-                                    type='button'
-                                    className={`py-2 px-4 flex cursor-pointer hover:text-primary transition-colors ${currentPage === index ? 'text-primary' : 'text-text'}`}
-                                    onClick={() => setCurrentPage(index)}
-                                >
-                                    {index + 1}
-                                </button>
-                            </li>
+                        cardList.map((card, index) => (
+                            <Card key={index} {...card} />
                         ))
                     }
-                </ul>
-                <div className='py-2 px-4 text-text'>...</div>
-                <button type='button' className='py-2 px-4 text-text cursor-pointer hover:text-primary transition-colors'>
-                    &gt;
-                </button>
-            </nav>
+                </div>
 
+                <nav className='mx-auto md:mb-20 mb-[64px] w-fit justify-center flex bg-white rounded-[40px] text-[16px] font-medium py-2'>
+                    <button type='button' className='py-2 px-4 text-text cursor-pointer hover:text-primary transition-colors'>
+                        &lt;
+                    </button>
+                    <ul className='flex'>
+                        {
+                            Array.from({ length: 5 }).map((_, index) => (
+                                <li key={index}>
+                                    <button
+                                        type='button'
+                                        className={`py-2 px-4 flex cursor-pointer hover:text-primary transition-colors ${currentPage === index ? 'text-primary' : 'text-text'}`}
+                                        onClick={() => setCurrentPage(index)}
+                                    >
+                                        {index + 1}
+                                    </button>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <div className='py-2 px-4 text-text'>...</div>
+                    <button type='button' className='py-2 px-4 text-text cursor-pointer hover:text-primary transition-colors'>
+                        &gt;
+                    </button>
+                </nav>
+                <div className='py-[80px] justify-between hidden xl:flex'>
+                    <a href="mailto:alysewang@hexschool.com" className='text-[32px] font-medium text-black'>
+                        alysewang@hexschool.com
+                    </a>
+                    <div className='flex gap-x-[24px]'>
+                        <img src={YTIcon} alt='youtube' />
+                        <img src={PodcastIcon} alt="podcast" />
+                        <img src={FBIcon} alt="fb" />
+                        <img src={LinkedinIcon} alt="linkedin" />
+                        <img src={IGIcon} alt="ig" />
+                    </div>
+                </div>
+            </div>
         </Default>
     );
 }
