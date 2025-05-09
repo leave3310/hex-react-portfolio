@@ -1,13 +1,13 @@
-import { Link } from "react-router";
+import { Link } from 'react-router'
 
 export default function Card(cardData: {
-    imgSrc: string;
-    title: string;
-    description: string;
-    tags: string[];
-    date: string;
+  imgSrc: string
+  title: string
+  description: string
+  tags: string[]
+  date: string
 }) {
-    return (
+  return (
         <div>
             <div className="mb-4">
                 <img src={cardData.imgSrc} alt={cardData.title} className="w-full h-full object-cover" />
@@ -18,7 +18,7 @@ export default function Card(cardData: {
                 </div>
                 <ul className="flex text-primary font-medium text-[24px]">
                     {
-                        cardData.tags.map((tag) => (
+                        cardData.tags.map(tag => (
                             <li key={tag} className="mr-1">#{tag}</li>
                         ))
                     }
@@ -34,5 +34,5 @@ export default function Card(cardData: {
                 </Link>
             </div>
         </div>
-    );
+  )
 }
