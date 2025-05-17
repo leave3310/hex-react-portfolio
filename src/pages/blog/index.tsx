@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
-import Card from './components/Card.tsx'
+import Card from '@/components/Card.tsx'
 import Default from '@/layouts/Default.tsx'
 
 import heroSection from '@/assets/images/hero_section.png'
@@ -60,6 +60,7 @@ const cardList = [
     description: '面試前端工程師時，你或許擔心被問到各種刁鑽的技術題目，或是擔憂無法在短時間內展現實力。其實，許多面試官關注的重點並不僅是程式碼本身，更包含問題解決的流程與溝通能力。這篇文章將分享我在面試過程中常見的三大難題，以及如何以更具條理的方式回應，讓你在面試場合中脫穎而出。',
     tags: ['面試準備', '工程師求職'],
     date: '2024/07/08',
+    isHot: true,
   },
   {
     imgSrc: photo5,

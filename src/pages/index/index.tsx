@@ -1,3 +1,4 @@
+import Carousel from './components/carousel'
 import Default from '@/layouts/Default'
 
 import heroSection from '@/assets/images/hero_section.png'
@@ -128,6 +129,12 @@ export default function Index() {
               <ArrowIcon className='fill-black  w-[13.5px] h-[21px]' />
             </div>
           </div>
+        </div>
+      </section>
+      <section className='py-[64px] xl:py-[80px]'>
+        <div className='max-w-[1432px] mx-auto px-4 xl:px-0'>
+          <h2 className='xl:ml-[68px] text-[48px] font-bold text-black mb-[24px]'>部落格精選</h2>
+          <Carousel />
         </div>
       </section>
       <section className='max-w-[1296px] mx-auto px-3 xl:py-[80px] py-[64px] xl:px-0'>

@@ -6,6 +6,7 @@ export default function Card(cardData: {
   description: string
   tags: string[]
   date: string
+  isHot: boolean
 }) {
   return (
         <div>
@@ -16,13 +17,24 @@ export default function Card(cardData: {
                 <div className="mb-1 font-medium text-[16px]">
                     {cardData.date}
                 </div>
-                <ul className="flex text-primary font-medium text-[24px]">
+                <div className='flex'>
+                    <ul className="flex text-primary font-medium text-[24px]">
+                        {
+                            cardData.tags.map(tag => (
+                                <li key={tag} className="mr-1">#{tag}</li>
+                            ))
+                        }
+                    </ul>
                     {
-                        cardData.tags.map(tag => (
-                            <li key={tag} className="mr-1">#{tag}</li>
-                        ))
+                        cardData.isHot && (
+                            <div className='ml-1 bg-primary text-white font-bold text-[16px] px-3 py-[6px] rounded-[40px]'>
+                                人氣文章
+                            </div>
+                        )
                     }
-                </ul>
+
+                </div>
+
                 <div className="text-[28px] font-bold mb-2">
                     {cardData.title}
                 </div>
