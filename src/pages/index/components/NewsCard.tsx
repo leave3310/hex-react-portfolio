@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { Link } from 'react-router'
 
 export default function NewsCard(cardData: {
@@ -14,9 +15,9 @@ export default function NewsCard(cardData: {
                 <img src={cardData.imgSrc} alt={cardData.title} className="w-full h-full object-cover" />
             </div>
             <div>
-                <div className="mb-1 font-medium text-[16px]">
+                <time dateTime={dayjs(cardData.date).format('YYYY-MM-DD')} className="mb-1 font-medium text-[16px]">
                     {cardData.date}
-                </div>
+                </time>
                 <div className='flex'>
                     <ul className="flex text-primary font-medium text-[24px]">
                         {
