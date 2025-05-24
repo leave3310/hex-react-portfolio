@@ -110,7 +110,7 @@ export default function Blog() {
   const [currentPage, setCurrentPage] = useState(0)
   return (
         <Default>
-            <div className='xl:flex'>
+            <section className='xl:flex'>
                 <div className='xl:w-1/2'>
                     <img src={heroSection} alt="hero-section" className='w-full' />
                 </div>
@@ -118,8 +118,8 @@ export default function Blog() {
                     <h1 className='xl:text-[120px] text-[52px] font-black uppercase text-primary mb-3 '>blog</h1>
                     <p className='text-[28px] font-bold text-primary'>前端工程師 & 職涯諮詢師</p>
                 </div>
-            </div>
-            <div className='xl:flex items-center '>
+            </section>
+            <section className='xl:flex items-center '>
                 <div className='xl:w-1/2'>
                     <img src={aboutSection} alt="about-section" className='w-full' />
                 </div>
@@ -145,7 +145,7 @@ export default function Blog() {
                         閱讀內文
                     </Link>
                 </div>
-            </div>
+            </section>
             <div className='pt-[112px] xl:pt-[80px] max-w-[1296px] mx-auto px-[12px]'>
                 <div className='mb-10 relative mx-auto min-w-[351px] max-w-[416px] xl:ml-0'>
                     <SearchIcon className='w-6 h-6 absolute top-1/2 left-4 -translate-y-1/2 text-text text-text' />
@@ -154,7 +154,7 @@ export default function Blog() {
                 <div className='grid xl:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-[32px] md:gap-y-20 mb-10'>
                     {
                         cardList.map((card, index) => (
-                            <Card key={index} {...card} />
+                            <Card key={index} {...card} isHot={card.isHot ?? false} />
                         ))
                     }
                 </div>
